@@ -3,9 +3,7 @@ import jazzyLogo from "../assets/navbar-jazzy-logo.svg";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form"
-import  IoEyeOffOutline  from "react-icons/io5";
-import  IoEyeOutline  from "react-icons/io5";
+import { useForm } from "react-hook-form";
 
 
 const Signin = () => {
@@ -65,7 +63,7 @@ const Signin = () => {
                 {...register("password", {required:true})}
               />
               {errors.password && <span className="text-danger fw-bold">This field is required</span> }
-              <p class='position-absolute end-0 top-0 mt-3 me-2' role="button" onClick={handleToggle}>{isReveal ? <IoEyeOutline /> : <IoEyeOutline />}</p>
+              <p class='position-absolute end-0 top-0 mt-3 me-2' role="button" onClick={handleToggle}>{isReveal ? 'hide' : 'show'}</p>
             </FloatingLabel>
 
             {/* Below is for check box */}
