@@ -65,7 +65,7 @@ const Signin = () => {
                 {...register("password", {required:true})}
               />
               {errors.password && <span className="text-danger fw-bold">This field is required</span> }
-              <p class='position-absolute end-0 top-0 mt-3 me-2' role="button" onClick={handleToggle}>{isReveal ? { IoEyeOffOutline} : { IoEyeOutline}}</p>
+              <p class='position-absolute end-0 top-0 mt-3 me-2' role="button" onClick={handleToggle}>{isReveal ? <IoEyeOutline /> : <IoEyeOutline />}</p>
             </FloatingLabel>
 
             {/* Below is for check box */}
