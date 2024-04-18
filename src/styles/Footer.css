@@ -1,0 +1,25 @@
+.social-icon {
+    width: 27px;
+ }
+
+
+@media (max-width: 767px) {
+  .d-lg-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+ 
+
+  .social-icon {
+    display: flex; 
+    margin-left: 2.5rem;
+    width: 25px; 
+  }
+
+ .txt {
+    text-align: center;
+    
+  }
+}

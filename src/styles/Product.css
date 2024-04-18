@@ -1,0 +1,35 @@
+.card-inner {
+    width: 19rem;
+  }
+
+  .custom-button {
+    background-color: #ff0000; 
+    color: #ffffff; 
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+  }
+  
+  .custom-button:hover {
+    background-color: #22cc00; 
+  }
+  
+
+
+  
+  @media (max-width: 425px) {
+    .card-inner {
+      width: 100%;
+    }
+  }
+  @media (max-width: 768px) {
+    .card-inner {
+      width: 100%;
+    }
+  }
+  @media (min-width: 1024px) {
+    .card-inner {
+      width: 30%;
+    }
+    
+  }
