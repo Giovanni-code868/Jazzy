@@ -44,7 +44,7 @@ const Footer = () => {
           {/* Social Media Icons */}
           <div className='container txt mt-5'>
             <h1 className='text-light fs-6'>FOLLOW US</h1>
-            <div className='d-flex gap-2  '>
+            <div className='d-flex gap-2 m-auto '>
               
               <img src={facebook} alt="" className='img-fluid social-icon'/>
               <img src={twitter} alt="" className='img-fluid social-icon'/>
