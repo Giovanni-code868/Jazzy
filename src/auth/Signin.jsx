@@ -4,26 +4,27 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-
+import { BsEye, BsEyeSlash } from 'react-icons/bs'; 
 
 const Signin = () => {
-  const [isReveal , setIsReveal] = useState(false)
+  const [isReveal, setIsReveal] = useState(false);
 
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm()
+  } = useForm();
 
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data) => console.log(data);
 
-  function handleToggle (){
-    !isReveal ? setIsReveal(true) : setIsReveal(false)
-  }
   useEffect(() => {
     document.title = "Login Page";
   });
+
+  function handleToggle() {
+    setIsReveal(!isReveal);
+  }
+
   return (
     <>
       <main className="container vh-50 d-flex flex-column my-3">
@@ -38,7 +39,7 @@ const Signin = () => {
           </h2>
           {/* Form */}
           <Form className="w-75 m-auto" onSubmit={handleSubmit(onSubmit)}>
-            {/*   Input for EMail */}
+            {/* Input for Email */}
             <Form.Label className="fs-6 text-secondary">Email</Form.Label>
             <FloatingLabel
               controlId="floatingInput"
@@ -53,36 +54,58 @@ const Signin = () => {
               />
             </FloatingLabel>
 
-            {/* input for password */}
-            <Form.Label className="fs-6 text-secondary"> Password</Form.Label>
+            {/* Input for password */}
+            <Form.Label className="fs-6 text-secondary">Password</Form.Label>
             <FloatingLabel controlId="floatingPassword" label="Password">
               <Form.Control
-                type={isReveal ? "text" :"password"}
+                type={isReveal ? "text" : "password"}
                 placeholder="Password"
                 className="border border-3 rounded-3"
-                {...register("password", {required:true})}
+                {...register("password", { required: true })}
               />
-              {errors.password && <span className="text-danger fw-bold">This field is required</span> }
-              <p class='position-absolute end-0 top-0 mt-3 me-2' role="button" onClick={handleToggle}>{isReveal ? 'hide' : 'show'}</p>
+              {errors.password && (
+                <span className="text-danger fw-bold">This field is required</span>
+              )}
+              {/* Show/hide toggle */}
+              {isReveal ? (
+                <BsEyeSlash
+                  className="position-absolute end-0 top-50 translate-middle-y me-2"
+                  onClick={handleToggle}
+                  style={{ cursor: "pointer" }}
+                />
+              ) : (
+                <BsEye
+                  className="position-absolute end-0 top-50 translate-middle-y me-2"
+                  onClick={handleToggle}
+                  style={{ cursor: "pointer" }}
+                />
+              )}
             </FloatingLabel>
 
-            {/* Below is for check box */}
+            {/* Checkbox and Reset Password link */}
             <div className="d-flex justify-content-between mt-3">
-              {["checkbox"].map((type) => (
-                <div key={`default-${type}`} className="mb-3">
-                  <Form.Check // prettier-ignore
-                    type={type}
-                    id={`default-${type}`}
-                    label={"keep me signed in"}
-                    className="fs-6 fw-bold"
-                  />
-                </div>
-              ))}
-              <Link className="text-decoration-none" to='/Home'>Reset Password</Link>
+              <div className="mb-3">
+                <Form.Check
+                  type="checkbox"
+                  id="default-checkbox"
+                  label="Keep me signed in"
+                  className="fs-6 fw-bold"
+                />
+              </div>
+              <Link className="text-decoration-none " to="/Home">
+                Reset Password
+              </Link>
             </div>
-            <button className="btn btn-danger fs-3 text-white w-100">Sign In</button>
-            <p className="text-center mt-3 fw-bold" >Don't Have an Account?
-            <Link className="text-decoration-none" to='/Signup'>Create One</Link>
+
+            {/* Sign In button and Create Account link */}
+            <button className="btn btn-danger fs-3 text-white w-100">
+              Sign In
+            </button>
+            <p className="text-center mt-3 fw-bold">
+              Don't Have an Account?
+              <Link className="text-decoration-none" to="/Signup">
+                Create One
+              </Link>
             </p>
           </Form>
         </div>
