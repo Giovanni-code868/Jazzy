@@ -6,7 +6,7 @@ const Bag = () => {
   const history = useHistory();
 
   const handleProceedToCheckout = () => {
-    history.push("/checkout");
+  
   };
 
   return (
